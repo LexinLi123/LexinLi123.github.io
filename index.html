@@ -1,0 +1,192 @@
+<html lang="en">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+
+  <head>   
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Test</title>
+
+  <!-- Datatable -->
+    <link rel="stylesheet" href="lib/datatable/datatable.css">
+    <body>
+      <div class="mainNav">
+        <div class="mainNavWrap">
+          <div class="navLeft">
+            <h1>LOGO HERE</h1>
+            <!--<img src="img/vocusLogo.png" alt="vocus logo">-->
+            <a href="index.html">Home</a>
+            <a>Resources</a>
+            <a href="portals.html">Portals</a>
+          </div>
+          <div class="navRight">
+            <input type="text" id="search" placeholder="Search">
+          </div>
+        </div>
+      </div>
+
+      <div class="main_container">
+        <div class="nav_container">
+          <div class="topnav">
+            <a class="active" href="index.html">Dashboard</a>
+            <a href="services.html">Services</a>
+            <a href="quotes.html">Quotes</a>
+            <a href="orders.html">Orders</a>
+            <a href="billing.html">Billing</a>
+            <a href="cases.html">Cases</a>
+          </div>
+        </div>
+
+  
+          <div class="container">
+            <div class="left">
+              <div class="box_container">
+                <a href ="services.html" class="box">
+                  <div class="tile_header">
+                    <img src="img/services.png" alt="'service icon">
+                    <div class="card_title">My Services</div>
+                  </div>
+                  <div class="card_value">38</div>
+                </a>
+                <a href = "quotes.html" class="box">
+                  <div class="tile_header">
+                    <img src="img/quote.png" alt="'service icon">
+                    <div class="card_title">Quotes</div>
+                  </div>
+                  <div class="card_value">12</div>
+                </a>
+                <a href = "orders.html" class="box">
+                  <div class="tile_header">
+                    <img src="img/orders.png" alt="'service icon">
+                    <div class="card_title">Orders</div>
+                  </div>
+                  <div class="card_value">3</div>
+                </a>
+                <a href= "cases.html" class="box">
+                  <div class="tile_header">
+                    <img src="img/cases.png" alt="'service icon">
+                    <div class="card_title">Cases</div>
+                  </div>
+                  <div class="card_value">2</div>
+                </a>
+              </div>
+              
+              <div class="graph_container">
+                <div class="headerWrap">
+                  <div class="tile_header">
+                    <img src="img/data.png" alt="'service icon">
+                    <div class="card_title">Data Usage</div>
+                  </div>
+                  <div class="select">
+                    <select>
+                      <option value="1">Service 1</option>
+                      <option value="2">Service 2</option>
+                      <option value="3">Service 3</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="graph">
+                  <canvas id="chartJSContainer" width="600" height="300"></canvas>
+                </div>
+              </div>
+              
+              <script>
+                var options = {
+                type: 'bar',
+                data: {
+                  labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                  datasets: [{
+                      label: 'Gigabytes',
+                      data: [60, 80, 50, 50, 60, 70, 60],
+                      borderWidth: 1,
+                      borderColor: '#1890FF',
+                      backgroundColor: '#b5dcff',
+                      borderRadius: 8,
+                   }]
+                  },
+                  options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+                }
+              
+                var ctx = document.getElementById('chartJSContainer').getContext('2d');
+                new Chart(ctx, options);
+              </script>
+
+            </div>
+        
+            <div class="right">
+              <div class="update">            
+                  <div class="tile_header">
+                    <img src="img/updates.png" alt="'service icon">
+                    <div class="card_title">Updates & Resources</div>
+                  </div>
+                  <div class="update_content">
+                    <h3>Try out our new internet product quoting tool!</h3>
+                    <Button>Create a quote</Button>
+                  </div>
+                  <div class="update_content">
+                    <h3>Multi-factor Authentication is now Available</h3>
+                    <p>Vocus recommends all customers to have multifactor authentication enabled.
+                      <br></br>
+      
+                      Visit ‘My Profile’ to enable a subscriptino at yout next login</p>
+                  </div>
+              </div>
+              <div class="update">
+                <div class="tile_header">
+                  <img src="img/invoice.png" alt="'service icon">
+                  <div class="card_title">Billing</div>
+                </div>
+                <table id="myTable" class="display">
+                  <thead>
+                      <tr>
+                          <th>Billing ID</th>
+                          <th>Account Name</th>
+                          <th>Status</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>Row 1 Data 1</td>
+                          <td>Row 1 Data 2</td>
+                          <td>Row 2 Data 2</td>
+                      </tr>
+                      <tr>
+                          <td>Row 2 Data 1</td>
+                          <td>Row 2 Data 2</td>
+                          <td>Row 2 Data 2</td>
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <!--jQuery-->
+      <script src="lib/jquery/jquery-3.7.1.js"></script>
+
+      <!--datatable-->
+      <script src="lib/datatable/datatable.js"></script>
+
+      <script>
+        $(document).ready( function () {
+          $('#myTable').DataTable({
+            searching:false,
+            ordering: false,
+            paging:false
+          });
+      } );
+      </script>
+    </body>
+  </head>
+
+</html>
